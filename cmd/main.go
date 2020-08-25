@@ -11,8 +11,8 @@ import (
 	"time"
 )
 
-func main()  {
-	longitude, latitude := 113.290717,22.767033
+func main() {
+	longitude, latitude := 113.290717, 22.767033
 	filter := bson.D{
 		{"geoNear", "region"},
 		{"spherical", true},
@@ -38,5 +38,6 @@ func main()  {
 	location := &domain.GeoMongoResult{}
 	err = res.Decode(location)
 	str, _ := json.Marshal(location)
+	//广东省佛山市顺德区
 	log.Printf("%v %s", err, string(str))
 }
